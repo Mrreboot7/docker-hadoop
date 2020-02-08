@@ -1,6 +1,6 @@
-FROM bde2020/hadoop-base:2.0.0-hadoop3.2.1-java8
+FROM myy92715/hadoop-base:2.0.0-hadoop3.2.1-java8
 
-MAINTAINER Ivan Ermilov <ivan.s.ermilov@gmail.com>
+LABEL Elliot <myy92715@gmail.com>
 
 COPY WordCount.jar /opt/hadoop/applications/WordCount.jar
 

@@ -1,0 +1,17 @@
+name: Docker Image CI
+on: [push]
+env:
+  USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build image
+        run: make build
+      - name: Log into registry
+        run: docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
+      - name: Push image
+        run: make push
