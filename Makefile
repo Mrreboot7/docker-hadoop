@@ -21,6 +21,15 @@ push:
 	docker push myy92715/hadoop-historyserver:$(current_branch)
 	docker push myy92715/hadoop-submit:$(current_branch)
 
+pull:
+	docker pull myy92715/hadoop-base:$(current_branch)
+	docker pull myy92715/hadoop-namenode:$(current_branch)
+	docker pull myy92715/hadoop-datanode:$(current_branch)
+	docker pull myy92715/hadoop-resourcemanager:$(current_branch)
+	docker pull myy92715/hadoop-nodemanager:$(current_branch)
+	docker pull myy92715/hadoop-historyserver:$(current_branch)
+	docker pull myy92715/hadoop-submit:$(current_branch)
+
 wordcount:
 	docker build -t hadoop-wordcount ./submit
 	docker run --network ${DOCKER_NETWORK} --env-file ${ENV_FILE} myy92715/hadoop-base:$(current_branch) hdfs dfs -mkdir -p /input/
